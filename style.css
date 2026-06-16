@@ -1,0 +1,378 @@
+/* ==========================================
+   1. ページ全体の共通設定
+========================================== */
+body {
+    background-color: #000; /* 写真が読み込まれるまでの保険（黒） */
+    font-family: "BIZ UDMincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+    color: white;
+    margin: 0; /* 画面端の余計な隙間を無くす */
+}
+
+/* ==========================================
+   2. 背景レイヤー（5枚の写真を同じ位置に重ねる）
+========================================== */
+#bg-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* すべてのオブジェクトより後ろに配置 */
+}
+
+.bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* 最初は透明 */
+}
+
+/* ==========================================
+   3. メインコンテンツ（横スクロール）
+========================================== */
+main {
+    padding: 40px 0;     
+    display: flex;       
+    gap: 0;              
+    overflow-x: auto;    
+    white-space: nowrap; 
+    width: 100%;
+    box-sizing: border-box;
+    animation: openingUp 1.7s ease-out forwards; /* ページを開いた時、右から現れる */
+}
+
+/* 横スクロールバーのカスタマイズ */
+main::-webkit-scrollbar {
+    height: 8px; 
+}
+main::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05); 
+    border-radius: 10px;             
+}
+main::-webkit-scrollbar-thumb {
+    background: #4d4d4d;
+    border-radius: 10px;             
+    cursor: pointer;
+}
+main::-webkit-scrollbar-thumb:hover {
+    background: rgb(148, 148, 148);  
+}
+
+/* ==========================================
+   4. ヘッダーのデザイン
+========================================== */
+h1 {
+    font-family: "Yu Mincho", "游明朝", "MS PMincho", serif;
+    font-weight: 900; 
+    transition: color 0.4s ease;
+}
+
+header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%);
+    color: rgb(0, 0, 0);
+    padding: 40px 40px 20px 40px; 
+    margin-bottom: 0;          
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: openingUp 1.0s ease-out forwards; /* ページを開いた時、右から現れる */
+}
+
+header a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: color 0.3s;
+    text-shadow: 2px 2px 6px rgb(255, 255, 255);
+}
+
+header :hover {
+    color: rgb(148, 148, 148);
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 20px;
+}
+
+header nav ul li {
+    font-size: large;
+}
+
+/* ==========================================
+   5. 各セクションの共通基本ルール
+========================================== */
+section {
+    background: transparent;
+    box-shadow: none;
+    padding: 24px;
+    flex-shrink: 0;      
+    
+    /* 左右の余白分（80px × 2 = 160px）を引き算 */
+    width: calc(100vw - 160px); 
+    margin-left: 80px;         /* 左側の余白を 80px に設定 */
+    margin-right: 30vw;        /* 右側の余白空間クッション */
+    scroll-margin-left: 80px;
+
+    margin-bottom: 0;    
+    white-space: normal; /*「改行禁止」強制解除し、次のタブへの侵食を防ぐ */
+}
+
+/* 大画面でリストやボタンが横に間伸びするのを防ぐ */
+section > * {
+    max-width: 800px; /* 中身の要素の横幅を、最大800pxに制限する */
+}
+
+h2 {
+    border-bottom: 2px dotted rgb(0, 0, 0);
+    padding-bottom: 8px;
+}
+
+/* ==========================================
+   6. 【自己紹介】セクションのデザイン
+========================================== */
+#about {
+    color: #000; /* 1枚目の背景画像に合わせて文字色を黒に指定 */
+}
+
+/* aboutセクションをホームページ（トップ画面風）に魅せる設定 */
+.home-section .home-welcome {
+    margin-top: 35px;
+    background-color: rgba(255, 255, 255, 0.30); /* 文字の後ろに白い座布団を敷く */
+    padding: 30px;                               /* ボックスの内側に余白を作る */
+    border-radius: 8px;                          /* 四隅を少し丸める */
+    backdrop-filter: blur(8px);                  /* すりガラス効果で背景の桜をぼかす */
+    border-left: 4px solid rgba(0, 0, 0, 0.3);   /* 左側に細い黒ラインを入れてる */
+}
+
+.home-section p {
+    line-height: 2.2;        /* 行間をさらにゆったり広げて読みやすく */
+    letter-spacing: 0.05em;  /* 文字の間隔を少し空けて洗練された印象に */
+    margin-top: 0;
+    margin-bottom: 18px;     /* 段落と段落の間の隙間を均一に空ける */
+}
+
+.home-section .lead-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;     /* 「初めまして」の後に少し広めの空間を作る */
+}
+
+/* 太字になっていた <h3>（このポートフォリオは〜）の見た目も美しく整える */
+.home-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.8;
+    margin-top: 35px;        /* 上の文章との間隔をしっかり空けて区切る */
+    margin-bottom: 12px;
+    color: #000;
+    
+    /* 上側に品のある点線を敷いて区切る */
+    border-top: 1px dashed rgba(0, 0, 0, 0.2);
+    padding-top: 30px;
+}
+
+.home-section .sub-text {
+    color: rgba(0, 0, 0, 0.6); /* 補足文なので少しだけ薄いグレーにしてメリハリをつける */
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   7. 【所持資格一覧】セクションのデザイン
+========================================== */
+#sikaku ul {
+    list-style: none;
+    padding: 0%;
+    margin: 0%;
+}
+
+/* 資格の各リスト */
+#sikaku li {
+    border-left: 4px solid rgba(255, 255, 255, 0.5); /* 左側の飾り線（半透明の白） */
+    padding: 15px;                                   
+    background-color: rgba(255, 255, 255, 0.20);     /* 背景写真が透けるbox */
+    margin-bottom: 12px;                             
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+}
+
+/* 資格内の説明文の文字の太さ・余白の微調整 */
+#sikaku li p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#sikaku a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9); /* 文字色を「白」ベースに変更 */
+    display: block;
+    transition: color 0.2s;
+}
+
+#sikaku a:hover {
+    color: rgb(148, 148, 148);
+}
+
+/* ==========================================
+   8. 【制作物一覧】セクションのデザイン
+========================================== */
+#works {
+    color: #000; /* 3枚目の背景画像に合わせて文字色を黒に指定 */
+}
+
+.work-item {
+    border-left: 4px solid rgba(126, 126, 126, 0.5); 
+    background-color: rgba(255, 255, 255, 0.20);
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 30px;
+    backdrop-filter: blur(10px);
+}
+
+/* 制作物タイトルのデザイン（重複を排除して統合） */
+.work-item h3 {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 8px;
+    margin-top: 40px; /* 2枚目以降の上の余白 */
+}
+
+.work-item h3:first-of-type {
+    margin-top: 0; /* 1枚目のツールの上の余白は不要なのでリセット */
+}
+
+.work-item p {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* ダウンロードボタンの見た目 */
+.download-btn {
+    display: inline-block;
+    background-color: #4d4d4d;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 5px; /* ボタンの下に隙間を作る */
+}
+
+/* マウスが乗ったとき */
+.download-btn:hover {
+    background-color: #228b22; /* 緑色に光らせる */
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   9. 【動画編集経歴】セクションのデザイン
+========================================== */
+#movie-career {
+    color: #fff; /* 背景が暗い画像になる想定で白文字ベース */
+}
+
+.career-item {
+    border-left: 4px solid rgba(255, 255, 255, 0.5); /* 資格欄とお揃い */
+    background-color: rgba(255, 255, 255, 0.05);    /* 暗い背景に溶け込む薄い座布団 */
+    backdrop-filter: blur(10px);                    /* すりガラス効果 */
+    padding: 24px;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+
+.career-date {
+    display: inline-block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 5px;
+}
+
+.career-item h3 {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* 経歴テーブルのレイアウト設定 */
+.career-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.career-table th,
+.career-table td {
+    padding: 12px 10px;
+    text-align: left;
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.career-table th {
+    width: 120px; /* 見出し部分の横幅 */
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+}
+
+.career-table td {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================
+   10. 【お問い合わせ】セクションのデザイン
+========================================== */
+#contact ul {
+    list-style: none;
+    padding: 0%;
+    display: flex;
+    gap: 15px;
+}
+
+#contact a {
+    display: inline-block;
+    background-color: #4d4d4d;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s; /* ボタンが浮く動きを滑らかにする設定 */
+}
+
+#contact a:hover {
+    background-color: #8a2be2;
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   11. 特殊パーツ ＆ アニメーションの型紙
+========================================== */
+@keyframes openingUp {
+    0% {
+        opacity: 0;
+        transform: translateX(50px); /* 50px「右」からスタート */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);    /* 元の位置に戻る */
+    }
+}
+
+.space-below {
+    /* 「文字1個分（＝1行分）」の余白を下に作るユーティリティ */
+    margin-bottom: 1em; 
+}

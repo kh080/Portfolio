@@ -152,8 +152,8 @@ h2 {
 }
 
 .home-section p {
-    line-height: 2.2;        /* 行間をさらにゆったり広げて読みやすく */
-    letter-spacing: 0.05em;  /* 文字の間隔を少し空けて洗練された印象に */
+    line-height: 2.2;        /* 行間を広げて読みやすく */
+    letter-spacing: 0.05em;  /* 文字の間隔を少し空けて洗練された印象 */
     margin-top: 0;
     margin-bottom: 18px;     /* 段落と段落の間の隙間を均一に空ける */
 }
@@ -164,12 +164,12 @@ h2 {
     margin-bottom: 25px;     /* 「初めまして」の後に少し広めの空間を作る */
 }
 
-/* 太字になっていた <h3>（このポートフォリオは〜）の見た目も美しく整える */
+/* 太字になっていた <h3>（このポートフォリオは〜）の見た目も整える */
 .home-section h3 {
     font-size: 16px;
     font-weight: bold;
     line-height: 1.8;
-    margin-top: 35px;        /* 上の文章との間隔をしっかり空けて区切る */
+    margin-top: 35px;        /* 上の文章との間隔を空けて区切る */
     margin-bottom: 12px;
     color: #000;
     
@@ -179,7 +179,7 @@ h2 {
 }
 
 .home-section .sub-text {
-    color: rgba(0, 0, 0, 0.6); /* 補足文なので少しだけ薄いグレーにしてメリハリをつける */
+    color: rgba(0, 0, 0, 0.6); /* 補足文なので少しだけ薄いグレーにする */
     font-size: 15px;
     margin-top: 15px;
     margin-bottom: 0;
@@ -204,7 +204,7 @@ h2 {
     backdrop-filter: blur(10px);
 }
 
-/* 資格内の説明文の文字の太さ・余白の微調整 */
+/* 資格内の説明文の文字の太さ・余白の調整 */
 #sikaku li p {
     margin: 5px 0 0 0;
     font-size: 14px;
@@ -238,7 +238,7 @@ h2 {
     backdrop-filter: blur(10px);
 }
 
-/* 制作物タイトルのデザイン（重複を排除して統合） */
+/* 制作物タイトルのデザイン */
 .work-item h3 {
     font-size: 18px;
     color: rgb(0, 0, 0);
@@ -247,7 +247,7 @@ h2 {
 }
 
 .work-item h3:first-of-type {
-    margin-top: 0; /* 1枚目のツールの上の余白は不要なのでリセット */
+    margin-top: 0; /* 1枚目のツールの上の余白はリセット */
 }
 
 .work-item p {
@@ -281,13 +281,13 @@ h2 {
    9. 【動画編集経歴】セクションのデザイン
 ========================================== */
 #movie-career {
-    color: #fff; /* 背景が暗い画像になる想定で白文字ベース */
+    color: #fff; /* 白文字ベース */
 }
 
 .career-item {
-    border-left: 4px solid rgba(255, 255, 255, 0.5); /* 資格欄とお揃い */
-    background-color: rgba(255, 255, 255, 0.05);    /* 暗い背景に溶け込む薄い座布団 */
-    backdrop-filter: blur(10px);                    /* すりガラス効果 */
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);    /* 薄い座布団 */
+    backdrop-filter: blur(10px);                    /* すりガラス */
     padding: 24px;
     border-radius: 4px;
     margin-top: 30px;
@@ -373,6 +373,6 @@ h2 {
 }
 
 .space-below {
-    /* 「文字1個分（＝1行分）」の余白を下に作るユーティリティ */
+    /* 「文字1個分（＝1行分）」の余白を下に作る */
     margin-bottom: 1em; 
 }

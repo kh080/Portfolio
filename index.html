@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | 唐澤</title>
+    <title>Portfolio | 樋口</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -30,11 +30,10 @@
     </header>
     
     <main>
-    
         <section id="about" class="home-section">
             <h2>自己紹介</h2>
             <div class="home-welcome">
-                <p class="lead-text">初めまして。唐澤と申します。</p>
+                <p class="lead-text">初めまして。樋口と申します。</p>
                 <p>現在、未経験からHTML,CSS,JavaScriptを使用し、本webサイト制作に挑戦しています。</p>
                 <p>約3年半ほど動画編集の業務委託を請け負っており</p>
                 <p>その経験から得たキャッチアップ力,自走力で、ITの分野でも現場へ貢献できるよう努めます。</p>
@@ -46,7 +45,6 @@
         <section id="sikaku">
             <h2>所持資格一覧</h2>
             <p>以下が現在所持している資格一覧です。</p>
-
             <ul>
                 <li>
                     <a href="https://www3.jitec.ipa.go.jp/JitesCbt/index.html" target="_blank">ITパスポート試験</a>
@@ -74,6 +72,45 @@
                 <h3>【Excel VBA】PDF解析集計マクロツール</h3>
                 <p>複雑なPDFデータを自動で集計・整理するマクロです。</p>
                 <a href="pdfcount.xlsm" download class="download-btn">Excelファイルをダウンロード</a>
+                <details>
+                    <summary>Q&A</summary>
+                    <div class="details-text">
+                    ◆［単一フォルダ解析］に関する質問<br>
+                    Q：間違えて、中にさらに複数のフォルダ（子フォルダ）が入っている「親フォルダ」を選択してしまいました。<br><br>
+                    A： マクロはエラーを起こさずに安全に終了します。<br>
+                    このボタンは選択された最上階の階層にあるPDFだけを狙う仕様のため、子フォルダの中身は無視され、読み込み結果は0件として処理されます。<br><br>
+                    ◆［サブフォルダ含め解析］に関する質問<br>
+                    Q：サブフォルダを持たない、階層のない「単一フォルダ」を間違えて選択してしまいました。<br><br>
+                    A： 現在あるシートを削除することなく、末尾に新しいシートを追加して通常通り解析を行います。<br>
+                    フォルダ名が重複している場合は、自動的に「フォルダ名_1」のように連番が付与されます。<br><br>
+                    Q：PDFファイルが1件も入っていないフォルダを選択した場合はどうなりますか？<br><br>
+                    A： 無駄なシートが作成されることはありません。<br>
+                    PDFが検出されたフォルダのみをシート化する仕組みになっているため、中身が空のフォルダは自動的にスキップされます。<br><br>
+                    Q：階層構造（サブフォルダ）のあるフォルダを読み込む際、注意することはありますか？<br><br>
+                    A： 選択した親フォルダの中にサブフォルダが存在する場合、前回までに作成された追加シートは一度すべてリセット（削除）され、最新の構造で新しく作り直されます。<br>
+                    もし過去のシートを残したままにしたい場合は、別のボタン（複数フォルダ連続解析）をご使用ください。<br><br>
+                    ◆［複数フォルダ連続解析］に関する質問<br>
+                    Q：何度もフォルダを追加していくと、メインシート（シート1）のデータが上書きされて消えたりしませんか？<br><br>
+                    A： メインシートのデータと干渉することはありません。<br>
+                    この機能は、選択したフォルダごとに「新しいシート」を右側に作成しながら展開していく仕様のため、メインシートのA〜D列が書き換わる心配はありません。<br><br>
+                    Q：連続選択の途中で、PDFが入っていないフォルダを選んでしまった場合はどうなりますか？<br><br>
+                    A： そのフォルダ用のシートは作成されず、自動的にスキップされます。<br>
+                    確認メッセージは通常通り表示されますので、そのまま次のフォルダの選択を続けてください。<br><br>
+                    ◆共通仕様に関する質問<br>
+                    Q：指定したフォルダの中に、テキスト（.txt）や画像（.png）など、PDF以外のファイルが紛れ込んでいた場合はどうなりますか？<br><br>
+                    A： PDF以外のファイルはシステムが無視します。<br>
+                    プログラムの内部で、ファイルの拡張子が「.pdf」であるときのみ解析と書き込みを行うフィルターをかけているため、エラーで止まることはありません。<br><br>
+                    Q：フォルダ選択画面で、間違えてファイル（.pdfなど）を単体で選んでしまうミスは起きませんか？<br><br>
+                    A： 構造上、絶対に起きないようになっています。<br>
+                    ボタンを押した際に起動する画面は「フォルダ選択専用」に固定されているため、画面上にはフォルダしか表示されず、ファイル単体をクリックすることはできません。<br><br>
+                    Q：何もファイルが入っていない、完全に空っぽのフォルダを選択した場合はどうなりますか？<br><br>
+                    A： エラーなどは起きず、安全に終了します。<br>
+                    画面上の古いデータは綺麗にクリアされ、読み込み件数「0件」として処理が完了します。<br><br>
+                    Q：「資料_1_vol10.pdf」と「資料_1_vol2.pdf」のように、1つのファイル名の中に数字が2箇所以上ある場合でも正しく並びますか？<br><br>
+                    A： はい、完璧な自然順で並びます。<br>
+                    ファイル名に含まれるすべての数字を後ろから順番に自動検出し、個別にゼロ埋めを施して並び替える「複数数字ソート」を搭載しています。<br>
+                    そのため、複雑なナンバリングのファイルでも意図通りの順番（vol2 ➔ vol10）に整列します。</div>
+                </details>
 
                 <h3>【Excel VBA】画像整理マクロツール</h3>
                 <p>選択したフォルダ内にある画像を整理するマクロです。</p>
@@ -81,22 +118,22 @@
 
                 <h3>【Windowsバッチ】共通単語で自動仕分けバッチツール</h3>
                 <p>「_」の前の共通単語を見つけてファイル分けするバッチです。</p>
-                <a href="filesort.bat" download class="download-btn">バッチファイルを表示</a>
+                <a href="filesort.bat" download class="download-btn">バッチファイルをダウンロード</a>
+                <p class="sub-text">※ダウンロードが始まらない場合は、ボタンを「右クリック」して「名前を付けてリンク先を保存」を選択してください。</p>
 
                 <h3>【Windowsバッチ】ファイルを100個に複製バッチツール</h3>
-                <p>「_1」のファイルを基準に「_2」~「_100」まで複製するバッチです。</p>
-                <a href="filecopy.bat" download class="download-btn">バッチファイルを表示</a>
+                <p>「_1」のファイルを基準に_2~_100まで複製するバッチです。</p>
+                <a href="filecopy100.bat" download class="download-btn">バッチファイルをダウンロード</a>
+                <p class="sub-text">※ダウンロードが始まらない場合は、ボタンを「右クリック」して「名前を付けてリンク先を保存」を選択してください。</p>
             </div>
         </section>
 
         <section id="career">
             <h2>経歴</h2>
             <p>これまでの活動経歴とスキルです。</p>
-            
             <div class="career-item">
                 <span class="career-date">2022年後半 〜 現在（約3年半）</span>
                 <h3>業務委託：映像クリエイター</h3>
-                
                 <table class="career-table">
                     <tr>
                         <th>使用ソフト</th>
@@ -115,7 +152,6 @@
             <div class="career-item">
                 <span class="career-date">2023年前半 〜 2026年前半（約3年）</span>
                 <h3>オンライン塾のサポート</h3>
-                
                 <table class="career-table">
                     <tr>
                         <th>使用ソフト</th>
@@ -127,7 +163,7 @@
                             【問い合わせ対応・出席管理】<br>
                             保護者からの問い合わせ対応(平均：30件/1日)、質疑応答(メタバース環境、授業内容、zoom)<br>
                             生徒の出席管理(Excelにてテーブル管理 基本：150名/1日)<br>
-                            一斉連絡事項のリマインド作成(LINE公式アカウント運用) 等
+                            一斉連絡事項のリマインド作成(LINE公式アカウント運用) 
                         </td>
                     </tr>
                 </table>
@@ -137,16 +173,13 @@
         <section id="contact">
             <h2>お問い合わせ</h2>
             <p>お仕事のご依頼やメッセージは、以下のリンクからお気軽にご連絡ください。</p>
-            
             <ul>
                 <li><a href="https://higuchi-consulting.com/" target="_blank">樋口総合研究所</a></li>
             </ul>
         </section>
-
     </main>
 
     <script>
-
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -219,7 +252,37 @@
         }
         
         easeScroll();
-    </script>
 
+        // すべての details 要素を取得
+        const detailsList = document.querySelectorAll('details');
+        const mainElement = document.querySelector('main');
+
+        // スクロール制御の修正
+        let isDetailsOpen = false; // 開いているかどうかのフラグ
+
+        detailsList.forEach((details) => {
+            details.addEventListener('toggle', () => {
+                isDetailsOpen = details.open;
+                
+                // 詳細内でホイールした時に親のmainへイベントが伝わるのを止める
+                if (isDetailsOpen) {
+                    details.addEventListener('wheel', (e) => {
+                        e.stopPropagation(); 
+                    });
+                }
+            });
+        });
+
+        // マウスホイール処理
+        main.addEventListener('wheel', (e) => {
+            // 詳細が開いていたら横スクロールを無効化
+            if (isDetailsOpen) return;
+
+            e.preventDefault();
+            targetX += e.deltaY * 3;
+            const maxScroll = main.scrollWidth - main.clientWidth;
+            targetX = Math.max(0, Math.min(targetX, maxScroll));
+        }, { passive: false }); 
+    </script>
 </body>
 </html>

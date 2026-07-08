@@ -133,6 +133,21 @@ h2 {
 }
 .home-section .sub-text { margin-top: 15px; margin-bottom: 0; color: rgba(0, 0, 0, 0.6); font-size: 15px; }
 
+#about ul { margin: 0; padding: 0; list-style: none; }
+#about li {
+    margin-bottom: 12px;
+    margin-top: 12px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    
+}
+#about li p { margin: 5px 0 0 0; color: rgba(0, 0, 0, 1); font-size: 14px; }
+#about a { display: block; color: rgba(0, 0, 0, 1); text-decoration: none; transition: color 0.2s; font-weight: bold; }
+#about a:hover { color: #004509; }
+
 #sikaku ul { margin: 0; padding: 0; list-style: none; }
 #sikaku li {
     margin-bottom: 12px;
